@@ -20,6 +20,27 @@ const photoInsertValidation = () => {
     ];
 };
 
+const photoUpdateValidation = () => {
+    return [
+        body('title')
+            .optional()
+            .isString()
+            .withMessage('O titulo eh obrigatorio')
+            .isLength({ min: 3 })
+            .withMessage('O titulo precisa ter no minimo 3 caracteres'),
+    ];
+};
+
+const commentValidation = () => {
+    return [
+        body('comment')
+            .isString()
+            .withMessage('O comentario eh obrigatorio.'),
+    ];
+};
+
 module.exports = {
     photoInsertValidation,
+    photoUpdateValidation,
+    commentValidation,
 };
